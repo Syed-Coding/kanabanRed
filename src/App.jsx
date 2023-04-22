@@ -10,15 +10,16 @@ export const TodoValueContext = createContext();
 // reducer for moving and deletion
 const initialState = data;
 const reducer = (state, { type, payload }) => {
+  console.log("payload", payload);
   switch (type) {
     case "SUBMIT_TYPE":
       return {
-        categories: state.categories,
+        ...state,
         tasks: [...state.tasks, payload],
       };
     case "MOVE_TO_ONGOING":
       return {
-        categories: state.categories,
+        ...state,
         tasks: state.tasks.map((ele) => {
           return ele.id === payload ? { ...ele, category: "ongoing" } : ele;
         }),
@@ -26,14 +27,14 @@ const reducer = (state, { type, payload }) => {
 
     case "MOVE_TO_COMPLETED":
       return {
-        categories: state.categories,
+        ...state,
         tasks: state.tasks.map((ele) => {
           return ele.id === payload ? { ...ele, category: "completed" } : ele;
         }),
       };
     case "COMPLETED":
       return {
-        categories: state.categories,
+        ...state,
         tasks: payload.tasks.filter((ele) => ele.id !== payload.id),
       };
     default:
@@ -43,14 +44,14 @@ const reducer = (state, { type, payload }) => {
 
 function App() {
   const [orginalData, dispatch] = useReducer(reducer, initialState);
-  const [input, setInputVal] = useState("");
+  console.log("orginaldata", orginalData);
   //destructuring
   const { categories, tasks } = orginalData;
-  console.log("origianl data", initialState);
+  // console.log("origianl data", initialState);
   return (
     <div className="App">
       <Header></Header>
-      <InputValueContext.Provider value={[setInputVal, dispatch, input]}>
+      <InputValueContext.Provider value={[dispatch]}>
         <Form></Form>
       </InputValueContext.Provider>
 

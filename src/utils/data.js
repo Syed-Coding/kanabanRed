@@ -1,4 +1,5 @@
 export const data = {
+  number: 2,
   categories: ["pending", "ongoing", "completed"],
   tasks: [
     {

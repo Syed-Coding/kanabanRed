@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { InputValueContext } from "../App";
 
 export function Form() {
-  const [setInputVal, dispatch, input] = useContext(InputValueContext);
-  console.log(useContext(InputValueContext));
+  const [input, setInputVal] = useState("");
+  const [dispatch] = useContext(InputValueContext);
+  // console.log(useContext(InputValueContext));
   const handleInput = (e) => {
     setInputVal(e.target.value);
   };
