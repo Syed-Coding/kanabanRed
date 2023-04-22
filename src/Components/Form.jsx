@@ -3,10 +3,10 @@ import { useContext } from "react";
 import { InputValueContext } from "../App";
 
 export function Form() {
-  const [inputdispatch, dispatch, input] = useContext(InputValueContext);
+  const [setInputVal, dispatch, input] = useContext(InputValueContext);
   console.log(useContext(InputValueContext));
   const handleInput = (e) => {
-    inputdispatch({ type: "INPUT_VALUE", payload: e.target.value });
+    setInputVal(e.target.value);
   };
 
   const handleSubmit = () => {
@@ -15,10 +15,10 @@ export function Form() {
       task: input,
       category: "pending",
     };
-    dispatch({ type: "SUBMIT_TYPE", payload: updateditem });
-    inputdispatch({ type: "CLEAR_INPUT_VALUE", payload: "" });
-  };
 
+    dispatch({ type: "SUBMIT_TYPE", payload: updateditem });
+    setInputVal("");
+  };
   return (
     <div id="taskForm">
       <h3>Add New Task</h3>

@@ -57,14 +57,14 @@ const reducer = (state, { type, payload }) => {
 
 function App() {
   const [orginalData, dispatch] = useReducer(reducer, initialState);
-  const [input, inputdispatch] = useReducer(inputReducer, initialinput);
+  const [input, setInputVal] = useState("");
   //destructuring
   const { categories, tasks } = orginalData;
   console.log("origianl data", initialState);
   return (
     <div className="App">
       <Header></Header>
-      <InputValueContext.Provider value={[inputdispatch, dispatch, input]}>
+      <InputValueContext.Provider value={[setInputVal, dispatch, input]}>
         <Form></Form>
       </InputValueContext.Provider>
 
