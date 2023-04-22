@@ -7,6 +7,20 @@ import { Form } from "./Components/Form";
 export const InputValueContext = createContext();
 export const TodoValueContext = createContext();
 
+// reducer for input
+
+const initialinput = "";
+
+const inputReducer = (inpState, { type, payload }) => {
+  switch (type) {
+    case "INPUT_VALUE":
+      return (inpState = payload);
+    case "CLEAR_INPUT_VALUE":
+      return (inpState = payload);
+    default:
+      inpState;
+  }
+};
 // reducer for moving and deletion
 const initialState = data;
 const reducer = (state, { type, payload }) => {
@@ -38,21 +52,6 @@ const reducer = (state, { type, payload }) => {
       };
     default:
       return state;
-  }
-};
-
-// reducer for input
-
-const initialinput = "";
-
-const inputReducer = (inpState, { type, payload }) => {
-  switch (type) {
-    case "INPUT_VALUE":
-      return (inpState = payload);
-    case "CLEAR_INPUT_VALUE":
-      return (inpState = payload);
-    default:
-      inpState;
   }
 };
 
