@@ -3,8 +3,10 @@ import { useContext, useState } from "react";
 import { InputValueContext } from "../App";
 
 export function Form() {
+  // console.log("hiii in form");
+
   const [input, setInputVal] = useState("");
-  const [dispatch] = useContext(InputValueContext);
+  const dispatch = useContext(InputValueContext);
   // console.log(useContext(InputValueContext));
   const handleInput = (e) => {
     setInputVal(e.target.value);

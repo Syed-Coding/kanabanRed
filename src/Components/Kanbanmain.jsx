@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TodoValueContext } from "../App";
 export function Kanbanmain() {
   const [categories, tasks, dispatch] = useContext(TodoValueContext);
-
+  // console.log("hiii in knaban");
   //handle move from pending to ongoing
   const handleMove = (id) => {
     dispatch({ type: "MOVE_TO_ONGOING", payload: id });

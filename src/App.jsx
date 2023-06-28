@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <InputValueContext.Provider value={[dispatch]}>
+      <InputValueContext.Provider value={dispatch}>
         <Form></Form>
       </InputValueContext.Provider>
 
